@@ -1,0 +1,6 @@
+batch
+/core-service=management/security-realm=CertificateRealm/authentication=ldap:add(base-dn="proper_base_dn", recursive=true, username-attribute="uid", connection="proper_ldap_connection_ref")
+/core-service=management/security-realm=CertificateRealm/authorization=properties:remove
+/core-service=management/security-realm=CertificateRealm/authorization=ldap:add(connection=proper_ldap_connection_ref)
+/core-service=management/security-realm=CertificateRealm/authorization=ldap/group-search=group-to-principal:add(search-by=DISTINGUISHED_NAME,iterative=false,recursive=true,group-name=SIMPLE,group-dn-attribute=dn,group-name-attribute=cn,base-dn="the_base_dn", principal-attribute=rbacGroup2User)
+run-batch
