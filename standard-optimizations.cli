@@ -1,0 +1,12 @@
+:take-snapshot
+/subsystem=deployment-scanner/scanner=default:write-attribute(name=scan-enabled,value=false)
+/subsystem=datasources/data-source=ExampleDS:disable
+/subsystem=datasources/data-source=ExampleDS:remove
+/subsystem=datasources/jdbc-driver=h2:remove
+/subsystem=logging/root-logger=ROOT:remove-handler(name=CONSOLE)
+/subsystem=logging/console-handler=CONSOLE:remove
+/core-service=management/access=audit/json-formatter=json-formatter:write-attribute(name=compact,value=true)
+/core-service=management/access=audit/json-formatter=json-formatter:write-attribute(name=escape-new-line,value=true)
+/core-service=management/access=audit/logger=audit-log:write-attribute(name=enabled,value=true)
+/core-service=management/access=audit/file-handler=file:write-attribute(name=relative-to,value="jboss.server.log.dir")
+/core-service=management/access=audit/file-handler=file:write-attribute(name=path,value="audit.log")
