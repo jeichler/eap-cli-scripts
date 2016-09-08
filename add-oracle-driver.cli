@@ -1,0 +1,1 @@
+/subsystem=datasources/jdbc-driver=OracleJDBCDriver:add(driver-name=OracleJDBCDriver,driver-module-name=com.oracle, driver-xa-datasource-class-name=oracle.jdbc.xa.client.OracleXADataSource)
